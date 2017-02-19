@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
                         this.subscription = subscription;
                         // 受け取るデータ数をリクエストする
-                        this.subscription.request(1L);
+//                        this.subscription.request(1L);
+                        this.subscription.request(Long.MAX_VALUE); // 制限なし(onNextでデータ数のリクエストは不要)
                     }
 
                     @Override
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("Subscriber", threadName + ": " + value);
 
                         // 次に受け取るデータ数をリクエストする
-                        this.subscription.request(1L);
+//                        this.subscription.request(1L);
                     }
 
                     @Override
