@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/drawer_menu_group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/navi_item_chapter1_list11"
+            android:title="Chapter1 List11"/>
+        <item
+            android:id="@+id/navi_item_chapter1_list17"
+            android:title="Chapter1 List17"/>
+    </group>
+</menu>

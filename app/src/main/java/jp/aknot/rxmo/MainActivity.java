@@ -1,8 +1,13 @@
 package jp.aknot.rxmo;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.MenuItem;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -20,6 +25,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
+                switch (item.getItemId()) {
+                    case R.id.navi_item_chapter1_list11:
+                        executeChapter1List11();
+                        drawer.closeDrawer(Gravity.LEFT);
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+    }
+
+    private void executeChapter1List11() {
         // 挨拶の言葉を通知する Flowable
         Flowable<String> flowable = Flowable.create(new FlowableOnSubscribe<String>() {
             @Override
